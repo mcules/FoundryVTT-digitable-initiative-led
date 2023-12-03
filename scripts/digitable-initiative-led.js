@@ -10,14 +10,11 @@ class DigiTableInitiativeLED  {
   static ID = 'FoundryVTT-digitable-initiative-led';
   static initialize() {
     this.settings();
-
     this.seats_power = {
       0: {"on":false,"bri":255},
       1: {"on":true,"bri":255}
     };
-
     this.seats_off = {"seg":{"i":[[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]]}};
-
     this.seats = {
       0: {"seg":{"i":[[255,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]]}},
       1: {"seg":{"i":[[0,0,0],[255,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]]}},
@@ -26,9 +23,6 @@ class DigiTableInitiativeLED  {
       4: {"seg":{"i":[[0,0,0],[0,0,0],[0,0,0],[0,0,0],[255,0,0],[0,0,0]]}},
       5: {"seg":{"i":[[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[255,0,0]]}}
     };
-
-    this.httpPost(game.settings.get(this.ID, 'wled-uri'), this.seats_power[1]).then();
-    this.httpPost(game.settings.get(this.ID, 'wled-uri'), this.seats_off).then();
   }
   static set_actor_led(actorId) {
     let seatId = game.settings.get("FoundryVTT-digitable-initiative-led", 'actor-seats')[actorId];
@@ -37,6 +31,13 @@ class DigiTableInitiativeLED  {
     }
 
     this.httpPost(game.settings.get(this.ID, 'wled-uri'), this.seats[seatId]);
+  }
+  static startInitiative() {
+    this.httpPost(game.settings.get(this.ID, 'wled-uri'), this.seats_power[1]).then();
+    this.httpPost(game.settings.get(this.ID, 'wled-uri'), this.seats_off).then();
+  }
+  static stopInitiative() {
+    this.httpPost(game.settings.get(this.ID, 'wled-uri'), this.seats_power[0]).then();
   }
   static async httpPost(url, values) {
     try {
@@ -95,15 +96,12 @@ class DigiTableInitiativeLED  {
     });
   }
 }
-
 Hooks.once('devModeReady', ({ registerPackageDebugFlag }) => {
   registerPackageDebugFlag(DigiTableInitiativeLED .ID);
 });
-
 Hooks.once('init', () => {
   DigiTableInitiativeLED .initialize();
 });
-
 Hooks.on('renderActorDirectory', (app, html) => {
   // check if current user is Game Master
   if (game.user.isGM) {
@@ -150,9 +148,14 @@ Hooks.on('renderActorDirectory', (app, html) => {
     });
   }
 });
-
 Hooks.on("updateCombat", (combat, data) => {
   if (data.turn !== undefined && data.turn !== combat.previous.turn) {
     DigiTableInitiativeLED.set_actor_led(combat.combatant.actorId);
   }
+});
+Hooks.on("deleteCombat", (combat) => {
+  DigiTableInitiativeLED.stopInitiative();
+});
+Hooks.on("createCombat", (combat) => {
+  DigiTableInitiativeLED.startInitiative();
 });
