@@ -7,9 +7,8 @@
     "name": "McUles"
     }
     ],
-  "url": "https://github.com/mcules/FoundryVTT-digitable-initiative-led",
   "scripts": [
-    "scripts/digitable.js"
+    "scripts/digitable-initiative-led.js"
   ],
   "languages": [
     {
@@ -23,8 +22,10 @@
       "path": "lang/de.json"
     }
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": {
     "verified": "11"
-  }
+  },
+  "url": "https://github.com/mcules/FoundryVTT-digitable-initiative-led",
+  "manifest": "https://github.com/mcules/FoundryVTT-digitable-initiative-led/raw/main/module.json"
 }
