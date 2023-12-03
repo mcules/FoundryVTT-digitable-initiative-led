@@ -1,0 +1,30 @@
+{
+  "id": "FoundryVTT-digitable-initiative-led",
+  "title": "DigiTable - Initiative LED",
+  "description": "This module controls the inititive LEDs on our digital table",
+  "authors": [
+    {
+    "name": "McUles"
+    }
+    ],
+  "url": "https://github.com/mcules/FoundryVTT-digitable-initiative-led",
+  "scripts": [
+    "scripts/digitable.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    }
+  ],
+  "version": "1.0.0",
+  "compatibility": {
+    "verified": "11"
+  }
+}

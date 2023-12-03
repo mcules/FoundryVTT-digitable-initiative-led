@@ -1,0 +1,32 @@
+.digitable {
+    gap: 1em;
+    margin-top: 0;
+    padding: 0;
+}
+
+.digitable > li {
+    align-items: center;
+    gap: 0.5em;
+}
+
+.digitable input[type="checkbox"] {
+    margin: 0;
+}
+
+.digitable-initiative-led-button {
+    align-self: center;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    line-height: normal;
+    padding: 0;
+}
+
+.digitable.digitable-initiative-led-button > i {
+    margin-right: 0;
+}
+
+.digitable-initiative-led-button:hover, .digitable-initiative-led-button:focus {
+    box-shadow: none;
+    text-shadow: 0 0 5px red;
+}

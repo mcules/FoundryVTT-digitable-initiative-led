@@ -1,0 +1,24 @@
+{
+  "FoundryVTT-digitable-initiative-led": {
+    "settings": {
+      "wled-ip": {
+        "Name": "WLED IP Adresse",
+        "Hint": ""
+      },
+      "dm-seat": {
+        "Name": "DM Platz Nummer",
+        "Hint": "Auf welchem Platz sitzt der Dungeon Master?"
+      },
+      "Actor": {
+        "Title": "Charakter Einstellungen",
+        "Seat": {
+          "Name": "Platz"
+        }
+      }
+    },
+    "Button": {
+      "Save": "Speichern",
+      "Chancel": "Abbrechen"
+    }
+  }
+}
