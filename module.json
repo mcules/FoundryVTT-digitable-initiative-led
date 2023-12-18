@@ -22,11 +22,11 @@
       "path": "lang/de.json"
     }
   ],
-  "version": "1.0.2",
-  "download": "https://github.com/mcules/workflow-test/archive/refs/tags/v1.0.2.zip",
   "compatibility": {
     "verified": "11"
   },
   "url": "https://github.com/mcules/FoundryVTT-digitable-initiative-led",
-  "manifest": "https://github.com/mcules/FoundryVTT-digitable-initiative-led/raw/main/module.json"
+  "manifest": "https://github.com/mcules/FoundryVTT-digitable-initiative-led/raw/main/module.json",
+  "version": "1.0.2",
+  "download": "https://github.com/mcules/workflow-test/archive/refs/tags/v1.0.2.zip"
 }
