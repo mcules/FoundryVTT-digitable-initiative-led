@@ -28,5 +28,5 @@
   "url": "https://github.com/mcules/FoundryVTT-digitable-initiative-led",
   "manifest": "https://github.com/mcules/FoundryVTT-digitable-initiative-led/raw/main/module.json",
   "version": "1.0.3",
-  "download": "https://github.com/mcules/FoundryVTT-digitable-initiative-led/releases/download/v1.0.3/main.zip"
+  "download": "https://github.com/mcules/FoundryVTT-digitable-initiative-led/archive/refs/tags/v1.0.3.zip"
 }
