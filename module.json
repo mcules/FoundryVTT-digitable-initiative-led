@@ -1,5 +1,5 @@
 {
-  "id": "FoundryVTT-digitable-initiative-led",
+  "id": "foundryvtt-digitable-initiative-led",
   "title": "DigiTable - Initiative LED",
   "description": "This module controls the inititive LEDs on our digital table",
   "authors": [
@@ -22,7 +22,7 @@
       "path": "lang/de.json"
     }
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": {
     "verified": "11"
   },

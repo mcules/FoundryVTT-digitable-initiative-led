@@ -1,0 +1,31 @@
+name: Check File and Create Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'module.json'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get release name
+        id: get_release_name
+        run: |
+          RELEASE_NAME=$(jq -r .version module.json)
+          echo "::set-output name=release_name::"v"$RELEASE_NAME"
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ steps.get_release_name.outputs.release_name }}
+          draft: false
+          prerelease: false
